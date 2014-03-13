@@ -2,10 +2,10 @@
 
 " makes * and # work on visual mode too.
 function! s:VSetSearch()
-  let temp = @s
+  let temp = @"
   norm! gv"sy
-  let @/ = '\V' . substitute(escape(@s, '\'), '\n', '\\n', 'g')
-  let @s = temp
+  let @/ = '\V' . substitute(escape(@", '\'), '\n', '\\n', 'g')
+  let @" = temp
 endfunction
 
 vmap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
